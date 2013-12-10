@@ -35,4 +35,30 @@ class StorageAdapter implements \Kumite\Adapters\StorageAdapter
             'metadata' => json_encode($metadata)
         ));
     }
+
+    public function countParticipants($testKey, $variantKey)
+    {
+        $sql = <<<SQL
+            SELECT COUNT(*)
+            FROM kumiteparticipant
+            WHERE testkey = ? AND variantkey = ?
+SQL;
+        return $this->connection()->execute(
+            $sql,
+            array($testKey, $variantKey)
+        )->scalar();
+    }
+
+    public function countEvents($testKey, $variantKey, $eventKey)
+    {
+        $sql = <<<SQL
+            SELECT COUNT(DISTINCT participantid)
+            FROM kumiteevent
+            WHERE testkey = ? AND variantkey = ? AND eventkey = ?
+SQL;
+        return $this->connection()->execute(
+            $sql,
+            array($testKey, $variantKey, $eventkey)
+        )->scalar();
+    }
 }

@@ -11,16 +11,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lwc/kumite.git",
-                "reference": "db76856cf8f61d5e4406c5963b849cd55cc660b0"
+                "reference": "9edf3319b3b1c04adcbfba1288edf320268e2fe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lwc/kumite/zipball/db76856cf8f61d5e4406c5963b849cd55cc660b0",
-                "reference": "db76856cf8f61d5e4406c5963b849cd55cc660b0",
+                "url": "https://api.github.com/repos/lwc/kumite/zipball/9edf3319b3b1c04adcbfba1288edf320268e2fe4",
+                "reference": "9edf3319b3b1c04adcbfba1288edf320268e2fe4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": ">=5.3.2",
+                "phpunit/phpunit": "~3.7"
             },
             "require-dev": {
                 "mockery/mockery": ">=0.7.2"
@@ -51,10 +52,8 @@
                 "split",
                 "testing"
             ],
-            "time": "2013-10-04 06:38:01"
-        }
-    ],
-    "packages-dev": [
+            "time": "2013-12-10 05:57:03"
+        },
         {
             "name": "phpunit/php-code-coverage",
             "version": "1.2.13",
@@ -469,6 +468,9 @@
             "homepage": "http://symfony.com",
             "time": "2013-11-26 16:40:27"
         }
+    ],
+    "packages-dev": [
+
     ],
     "aliases": [
 
