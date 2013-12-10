@@ -25,7 +25,7 @@ class Event extends DomainObject
     protected function beforeCreate()
     {
         $time = is_callable(self::$timeFn)
-            ?  call_user_func(self::$timeFn)
+            ? call_user_func(self::$timeFn)
             : time();
 
         $this->timecreated = $time;
