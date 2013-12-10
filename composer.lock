@@ -3,9 +3,56 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "30519dc5b96c30bcbdee32569e9a77dc",
+    "hash": "17845eb730cd0f7bb17c3fcedc6a6de2",
     "packages": [
-
+        {
+            "name": "lwc/kumite",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lwc/kumite.git",
+                "reference": "db76856cf8f61d5e4406c5963b849cd55cc660b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lwc/kumite/zipball/db76856cf8f61d5e4406c5963b849cd55cc660b0",
+                "reference": "db76856cf8f61d5e4406c5963b849cd55cc660b0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "mockery/mockery": ">=0.7.2"
+            },
+            "suggest": {
+                "lwc/kumite-moa": "Easily save kumite data in mongodb using moa"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kumite": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luke Cawood",
+                    "email": "luke.cawood@99designs.com"
+                }
+            ],
+            "description": "A simple library for multivariate testing in web applications",
+            "keywords": [
+                "a-b",
+                "multivariate",
+                "split",
+                "testing"
+            ],
+            "time": "2013-10-04 06:38:01"
+        }
     ],
     "packages-dev": [
         {
@@ -427,9 +474,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "lwc/kumite": 20
+    },
     "platform": [
 
     ],

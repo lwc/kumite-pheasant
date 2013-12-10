@@ -12,6 +12,6 @@
         }
     ],
     "require": {
-
+        "lwc/kumite": "dev-master"
     }
 }
