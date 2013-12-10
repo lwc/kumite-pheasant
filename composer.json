@@ -15,6 +15,6 @@
         "lwc/kumite": "dev-master"
     },
     "autoload": {
-        "psr-0": { "Kumite": "lib" }
+        "psr-0": { "Kumite\\Pheasant\\": "lib" }
     }
 }
