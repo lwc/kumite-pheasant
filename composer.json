@@ -13,5 +13,8 @@
     ],
     "require": {
         "lwc/kumite": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Kumite": "lib" }
     }
 }
