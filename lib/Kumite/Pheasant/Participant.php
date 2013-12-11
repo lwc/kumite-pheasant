@@ -1,6 +1,6 @@
 <?php
 
-namespace Edge\Kumite;
+namespace Kumite\Pheasant;
 
 use \Pheasant\DomainObject;
 use \Pheasant\Types;
@@ -27,7 +27,7 @@ class Participant extends DomainObject
     {
         $time = is_callable(self::$timeFn)
             ? call_user_func(self::$timeFn)
-            : time();
+            : new \DateTime();
 
         $this->timecreated = $time;
     }

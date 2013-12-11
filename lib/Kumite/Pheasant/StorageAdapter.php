@@ -4,7 +4,7 @@ namespace Kumite\Pheasant;
 
 class StorageAdapter implements \Kumite\Adapters\StorageAdapter
 {
-    public function createParticipant($testKey, $variantKey, $metadata)
+    public function createParticipant($testKey, $variantKey, $metadata=null)
     {
         $country = isset($metadata['country']) ? $metadata['country'] : null;
         $browser = isset($metadata['browser']) ? $metadata['browser'] : null;
@@ -13,7 +13,7 @@ class StorageAdapter implements \Kumite\Adapters\StorageAdapter
         unset($metadata['browser']);
         unset($metadata['operatingsystem']);
 
-        $participant = KumiteParticipant::create(array(
+        $participant = Participant::create(array(
             'testkey' => $testKey,
             'variantkey' => $variantKey,
             'country' => isset($metadata['country']) ? $metadata['country'] : null,
@@ -27,7 +27,7 @@ class StorageAdapter implements \Kumite\Adapters\StorageAdapter
 
     public function createEvent($testKey, $variantKey, $eventKey, $participantId, $metadata=null)
     {
-        KumiteEvent::create(array(
+        Event::create(array(
             'testkey' => $testKey,
             'variantkey' => $variantKey,
             'eventkey' => $eventKey,
@@ -43,7 +43,7 @@ class StorageAdapter implements \Kumite\Adapters\StorageAdapter
             FROM kumiteparticipant
             WHERE testkey = ? AND variantkey = ?
 SQL;
-        return $this->connection()->execute(
+        return \Pheasant::instance()->connection()->execute(
             $sql,
             array($testKey, $variantKey)
         )->scalar();
@@ -56,9 +56,9 @@ SQL;
             FROM kumiteevent
             WHERE testkey = ? AND variantkey = ? AND eventkey = ?
 SQL;
-        return $this->connection()->execute(
+        return \Pheasant::instance()->connection()->execute(
             $sql,
-            array($testKey, $variantKey, $eventkey)
+            array($testKey, $variantKey, $eventKey)
         )->scalar();
     }
 }
