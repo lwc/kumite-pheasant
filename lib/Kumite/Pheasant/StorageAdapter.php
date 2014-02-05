@@ -4,21 +4,28 @@ namespace Kumite\Pheasant;
 
 class StorageAdapter implements \Kumite\Adapters\StorageAdapter
 {
+
+    public function onCreateParticipant($callback)
+    {
+        Participant::schema()
+            ->events()
+            ->register('beforeCreate', $callback);
+        return $this;
+    }
+
+    public function onCreateEvent($callback)
+    {
+        Event::schema()
+            ->events()
+            ->register('beforeCreate', $callback);
+        return $this;
+    }
+
     public function createParticipant($testKey, $variantKey, $metadata=null)
     {
-        $country = isset($metadata['country']) ? $metadata['country'] : null;
-        $browser = isset($metadata['browser']) ? $metadata['browser'] : null;
-        $operatingsystem = isset($metadata['operatingsystem']) ? $metadata['operatingsystem'] : null;
-        unset($metadata['country']);
-        unset($metadata['browser']);
-        unset($metadata['operatingsystem']);
-
         $participant = Participant::create(array(
             'testkey' => $testKey,
             'variantkey' => $variantKey,
-            'country' => isset($metadata['country']) ? $metadata['country'] : null,
-            'browser' => isset($metadata['browser']) ? $metadata['browser'] : null,
-            'operatingsystem' => isset($metadata['operatingsystem']) ? $metadata['operatingsystem'] : null,
             'metadata' => json_encode($metadata)
         ));
 
