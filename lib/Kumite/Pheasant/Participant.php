@@ -29,6 +29,10 @@ class Participant extends DomainObject
             ? call_user_func(self::$timeFn)
             : new \DateTime();
 
+        if (!is_object($time)) {
+            $time = new \DateTime('@' . $time)
+        }
+
         $this->timecreated = $time;
     }
 
