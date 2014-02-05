@@ -29,7 +29,7 @@ class Event extends DomainObject
             : new \DateTime();
 
         if (!is_object($time)) {
-            $time = new \DateTime('@' . $time)
+            $time = new \DateTime('@' . $time);
         }
 
         $this->timecreated = $time;

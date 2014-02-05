@@ -1,6 +1,6 @@
 {
     "name": "lwc/kumite-pheasant",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Pheasant integration for Kumite",
     "require-dev": {
         "phpunit/phpunit": "~3.7"
