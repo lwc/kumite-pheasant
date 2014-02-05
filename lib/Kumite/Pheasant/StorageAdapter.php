@@ -45,27 +45,11 @@ class StorageAdapter implements \Kumite\Adapters\StorageAdapter
 
     public function countParticipants($testKey, $variantKey)
     {
-        $sql = <<<SQL
-            SELECT COUNT(*)
-            FROM kumiteparticipant
-            WHERE testkey = ? AND variantkey = ?
-SQL;
-        return \Pheasant::instance()->connection()->execute(
-            $sql,
-            array($testKey, $variantKey)
-        )->scalar();
+        return Participant::getTotalForVariant($testKey, $variantKey);
     }
 
     public function countEvents($testKey, $variantKey, $eventKey)
     {
-        $sql = <<<SQL
-            SELECT COUNT(DISTINCT participantid)
-            FROM kumiteevent
-            WHERE testkey = ? AND variantkey = ? AND eventkey = ?
-SQL;
-        return \Pheasant::instance()->connection()->execute(
-            $sql,
-            array($testKey, $variantKey, $eventKey)
-        )->scalar();
+        return Event::getTotalForEvent($testKey, $variantKey, $eventKey);
     }
 }

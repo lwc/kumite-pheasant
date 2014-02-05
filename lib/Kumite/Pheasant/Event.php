@@ -40,6 +40,20 @@ class Event extends DomainObject
         return 'kumiteevent';
     }
 
+
+    public function getTotalForEvent($testKey, $variantKey, $eventKey)
+    {
+        $sql = <<<SQL
+            SELECT COUNT(DISTINCT participantid)
+            FROM kumiteevent
+            WHERE testkey = ? AND variantkey = ? AND eventkey = ?
+SQL;
+        return self::connection()->execute(
+            $sql,
+            array($testKey, $variantKey, $eventKey)
+        )->scalar();
+    }
+
     public static function getTotalsForTest($testKey)
     {
         return self::connection()->execute(

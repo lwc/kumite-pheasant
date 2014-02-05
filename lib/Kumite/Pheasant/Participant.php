@@ -41,6 +41,20 @@ class Participant extends DomainObject
         return 'kumiteparticipant';
     }
 
+
+    public static function getTotalForVariant($testKey, $variantKey)
+    {
+        $sql = <<<SQL
+            SELECT COUNT(*)
+            FROM kumiteparticipant
+            WHERE testkey = ? AND variantkey = ?
+SQL;
+        return self::connection()->execute(
+            $sql,
+            array($testKey, $variantKey)
+        )->scalar();
+    }
+
     public static function getTotalsForTest($testKey)
     {
         return self::connection()->execute(
