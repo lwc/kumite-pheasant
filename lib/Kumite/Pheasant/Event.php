@@ -17,6 +17,7 @@ class Event extends DomainObject
             'variantkey' => new Types\String(),
             'eventkey' => new Types\String(),
             'participantid' => new Types\String(),
+            'value' => new Types\Integer(),
             'timecreated' => new Types\UnixTimestamp(),
             'metadata' => new Types\String(65534),
         );

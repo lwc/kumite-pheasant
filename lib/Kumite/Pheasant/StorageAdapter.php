@@ -34,11 +34,17 @@ class StorageAdapter implements \Kumite\Adapters\StorageAdapter
 
     public function createEvent($testKey, $variantKey, $eventKey, $participantId, $metadata=null)
     {
+        $value = null;
+        if (isset($metadata['value'])) {
+            $value = $metadata['value'];
+            unset($metadata['value']);
+        }
         Event::create(array(
             'testkey' => $testKey,
             'variantkey' => $variantKey,
             'eventkey' => $eventKey,
             'participantid' => $participantId,
+            'value' => $value,
             'metadata' => json_encode($metadata)
         ));
     }
