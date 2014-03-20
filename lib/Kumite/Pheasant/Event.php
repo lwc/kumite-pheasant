@@ -85,6 +85,7 @@ SQL;
                     SELECT
                         CEIL(timecreated / 21600) * 21600 as timegroup
                     FROM kumiteparticipant
+                    WHERE testkey = ?
                     GROUP BY timegroup
                 ) tg
                 LEFT JOIN kumiteparticipant kp ON (kp.timecreated <= timegroup)
@@ -93,7 +94,7 @@ SQL;
             ) g
             LEFT JOIN kumiteevent ke ON (g.variantkey = ke.variantkey AND ke.timecreated <= g.timegroup)
             WHERE ke.testkey = ? AND ke.eventkey = ?
-            GROUP BY variantkey, timegroup', array($testKey, $testKey, $eventKey)
+            GROUP BY variantkey, timegroup', array($testKey, $testKey, $testKey, $eventKey)
         );
     }
 }
