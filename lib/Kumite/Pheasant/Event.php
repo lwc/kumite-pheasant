@@ -42,7 +42,7 @@ class Event extends DomainObject
     }
 
 
-    public function getTotalForEvent($testKey, $variantKey, $eventKey)
+    public static function getTotalForEvent($testKey, $variantKey, $eventKey)
     {
         $sql = <<<SQL
             SELECT COUNT(DISTINCT participantid)
