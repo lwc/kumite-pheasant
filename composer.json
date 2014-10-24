@@ -11,7 +11,7 @@
         { "name": "Luke Cawood", "email": "luke.cawood@99designs.com" }
     ],
     "require": {
-        "lwc/kumite": "~2.0"
+        "lwc/kumite": "~3.0"
     },
     "autoload": {
         "psr-0": { "Kumite\\Pheasant\\": "lib" }
